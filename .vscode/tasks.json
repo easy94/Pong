@@ -4,8 +4,22 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++",
-            "args": ["-g", "-Wall","-Wpedantic" , "main.cpp", "-o", "a.out"],
+            "command": "gcc",
+            "args": [
+                "-g",
+                "-Wall",
+                "-Wpedantic",
+                "main.c",
+                "-o",
+                "a.out",
+                "-lraylib",
+                "-lGL",
+                "-lm",
+                "-lpthread",
+                "-ldl",
+                "-lrt",
+                "-lX11",
+            ],
             "group": "build"
         }
     ]
