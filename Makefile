@@ -4,7 +4,7 @@ LDLIBS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 
 TARGET = pong
-OBJECTS = main.o GameUpdate.o
+OBJECTS = main.o InputController.o Player.o ClientSideUpdate.o Actions.o
 
 .PHONY: all clean
 
@@ -13,11 +13,20 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS) -g
 
-main.o: main.c GameUpdate.h
+main.o: main.c ClientSideUpdate.h
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $< -g
 
-GameUpdate.o: GameUpdate.c GameUpdate.h
+Player.o: Player.c Player.h
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $< -g
 
+InputController.o: InputController.c InputController.h
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $< -g
+
+ClientSideUpdate.o: ClientSideUpdate.c Actions.c ClientSideUpdate.h Player.h GameInitConstants.h Actions.h
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $< -g
+
+Actions.o: Actions.c Actions.h
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $< -g
+ 
 clean:
 	rm -f $(TARGET) $(OBJECTS)

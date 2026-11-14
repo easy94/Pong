@@ -1,9 +1,7 @@
-#include "GameManager.h"
-
-
+#include "ClientSideUpdate.h"
 int main(void)
 {
-	StartGame();
+	GameUpdate_Update();
 
 	return 0;
 }

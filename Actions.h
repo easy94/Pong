@@ -2,9 +2,9 @@
 #if !defined(ACTIONS_H)
 #define ACTIONS_H
 
-void OpenOptions(Rectangle*);
-void PaddleDown(Rectangle*);
-void PaddleUp(Rectangle*);
+void OpenOptions();
+void PaddleDown(Rectangle*, float);
+void PaddleUp(Rectangle*, float);
 
 typedef enum{
     ActionNull = 0,

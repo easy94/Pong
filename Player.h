@@ -5,7 +5,7 @@ typedef struct{
 	Rectangle paddle;
 }Player;
 
-Player* Player_ctr_L();
-Player* Player_ctr_R();
+Player Player_ctr_L();
+Player Player_ctr_R();
 
 #endif // PLAYER_H
