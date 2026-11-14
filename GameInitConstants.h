@@ -1,0 +1,9 @@
+#ifndef GAMECONSTANTS_H
+#define GAMECONSTANTS_H
+
+#define SCREENWIDTH 800
+#define SCREENHEIGHT 600
+#define FPS 60
+
+#endif // GAMECONSTANTS_H
+
