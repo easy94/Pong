@@ -2,26 +2,24 @@
 #define INPUTCONTROLLER_H
 #include "Actions.h"
 #include "raylib.h"
+#include "GameManager.h"
 #include "Player.h"
+#define KEYBOARD_BUTTON_COUNT 6
 
 typedef struct {
-	void (*funcptr)(Rectangle* r, float spd);
-    int key;
-	int actioncode;
+	KeyboardKey key;
+	int action;
 } Command;
 
-typedef struct{
-	Command ButtonUp;
-	Command ButtonDown;
-	Command ButtonEsc;
-} InputHandler;
+typedef struct {
+	Command buttons[KEYBOARD_BUTTON_COUNT];
+	Command(*GetInput)(InputController* this);
+} InputController;
 
 void (*funcptr)(Rectangle *r, float spd);
 
-ActionsEnums GetPlayerInput(Player* p);
-InputHandler Input_Constructor(GameState);
-void SetAction(Command *c);
-void SetButtonToPaddleDown(Command *c);
-void SetButtonToPaddleUp(Command *c);
+Command GetPlayerInput(InputController* this);
+Command GetAIInput(InputController* this);
+void SetAction(InputController* this, KeyboardKey, ActionsEnums);
 
 #endif // INPUTCONTROLLER_H

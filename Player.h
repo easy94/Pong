@@ -3,7 +3,6 @@
 #include "raylib.h"
 typedef struct{
 	Rectangle paddle;
-	InputHandler input;
 }Player;
 
 Player* Player_ctr_L();

@@ -7,9 +7,10 @@ void PaddleDown(Rectangle*);
 void PaddleUp(Rectangle*);
 
 typedef enum{
-    ActionPaddleUpCode=991111,
-    ActionPaddleDownCode=991112,
-    ActionOptionsCode=991113,
+    ActionNull = 0,
+    ActionPaddleUpCode=1,
+    ActionPaddleDownCode=2,
+    ActionOptionsCode=3,
 }ActionsEnums;
 
 

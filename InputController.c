@@ -17,32 +17,24 @@
 #include "Player.h"
 #include "stdio.h"
 #include "GameManager.h"
+#include "malloc.h"
+#include "GameInitConstants.h"
+#include "Actions.h"
 
-//default maybe?! no clue if needed at all
 
-InputHandler Input_Constructor(GameState gamestate)
+Command GetPlayerInput(InputController *this)
 {
-    InputHandler i;
-	i.ButtonUp.funcptr = &PaddleUp;
-	i.ButtonDown.funcptr = &PaddleDown;
-    i.ButtonEsc.funcptr = &OpenOptions;
-
-    return i;
+    for (size_t i = 0; i < KEYBOARD_BUTTON_COUNT; i++)
+    {
+        if(IsKeyPressed(this->buttons[i].key)) return this->buttons[i];
+    }
+    return (Command){.action = 0, .key=0};
 }
 
-ActionsEnums GetPlayerInput(Player *p)
-{
-    if(IsKeyPressed(p->input->ButtonDown.key)) return &p->input->ButtonDown.actioncode;
-    if(IsKeyPressed(p->input->ButtonUp.key)) return &p->input->ButtonUp.actioncode;
-    if(IsKeyPressed(p->input->ButtonEsc.key)) return &p->input->ButtonEsc.actioncode;
+Command GetAIInput(InputController *this){
+    //Ai calculate and return Command
 }
 
-void SetAction(Command *c){
-    c->funcptr = &OpenOptions;
-}
-void SetButtonToPaddleDown(Command *c){
-    c->funcptr = &PaddleDown;
-}
-void SetButtonToPaddleUp(Command *c){
-    c->funcptr = &PaddleUp;
+void SetAction(InputController *this, KeyboardKey key, ActionsEnums action){
+    this->buttons[action].key = key;
 }

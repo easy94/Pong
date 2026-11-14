@@ -43,21 +43,23 @@ typedef struct {
     int a;
 } GameInitStruct;
 
-typedef struct{
-    Command cmd[2];
-    Player *p;
-} InputData;
-
 typedef enum{
-    easy,
-    hard
+    diffi_null=0,
+    easy=1,
+    hard,
+
+    difficultycount
 }Difficulty;
 
 typedef struct{
     //basically all entities
     Player players[2];
     GameState gamestate;
-    Difficulty
+    GameMode mode;
+    Difficulty Aidifficulty;
+    InputController *player_ctrlr;
+    InputController *ai_ctrlr;
+    void (*sendDataToInterface)();
 }Scene;
 
 #endif // GAMEMANAGER_H

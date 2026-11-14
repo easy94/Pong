@@ -10,7 +10,6 @@ Player* Player_ctr_L()
 		10,
 		70,
     };
-    p->input = Input_Constructor();
     return p;
 }
 
@@ -23,6 +22,5 @@ Player* Player_ctr_R()
 		10,
 		70,
     };
-    p->input = Input_Constructor();
     return p;
 }

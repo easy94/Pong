@@ -4,6 +4,7 @@
 #define SCREENWIDTH 800
 #define SCREENHEIGHT 600
 #define FPS 60
+#define PLAYERCOUNT 2
 
 #endif // GAMECONSTANTS_H
 

@@ -37,9 +37,8 @@ void Render(GameData data)
 
 		ClearBackground(BLACK);
 
-		if(data.state == running)
+		if(data.state == Ingame)
 		{
-			
 			//logging
 			if (IsKeyDown(KEY_UP))
 			{
@@ -59,11 +58,7 @@ void Render(GameData data)
 				ball.height/2.f, 
 				WHITE
 			);
-
-			if(data.state == menu)
-			{
-				//draw a sprite over everything else
-			}
+			
 		}
 
 		EndDrawing();
